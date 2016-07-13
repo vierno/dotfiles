@@ -1,0 +1,20 @@
+[user]
+	name = Guilherme Vierno
+	email = guilhermevierno@gmail.com
+[push]
+	default = simple
+[core]
+	editor = /usr/bin/vim
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+[merge]
+	tool = opendiff
+[diff]
+	tool = opendiff
