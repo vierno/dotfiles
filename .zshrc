@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/guilherme.silveira/.oh-my-zsh
+export ZSH=/Users/guilherme.vierno/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -107,7 +107,7 @@ export PATH="$PATH:$HOME/bin"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-export NVM_DIR="/Users/guilherme.silveira/.nvm"
+export NVM_DIR="/Users/guilherme.vierno/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 ###-begin-npm-completion-###
 #
@@ -164,4 +164,4 @@ fi
 ###-end-npm-completion-###
 
 # added by travis gem
-[ -f /Users/guilherme.silveira/.travis/travis.sh ] && source /Users/guilherme.silveira/.travis/travis.sh
+[ -f /Users/guilherme.vierno/.travis/travis.sh ] && source /Users/guilherme.vierno/.travis/travis.sh
