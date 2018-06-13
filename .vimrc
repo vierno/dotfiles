@@ -23,12 +23,6 @@ if !filereadable(neobundle_readme)
 
   " Run shell script if exist on custom select language
 
-
-
-
-
-
-
 endif
 
 " Required:
@@ -66,10 +60,6 @@ NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-session'
 
 "" Snippets
-if v:version >= 704
-  NeoBundle 'SirVer/ultisnips'
-endif
-
 NeoBundle 'honza/vim-snippets'
 
 "" Color
@@ -196,7 +186,6 @@ set gfn=Monospace\ 10
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
 	set guifont=Source\ Code\ Pro\ for\ Powerline:h13
-    set transparency=7
   endif
 else
   let g:CSApprox_loaded = 1
@@ -297,7 +286,7 @@ cnoreabbrev Qall qall
 
 "" NERDTree configuration
 let g:NERDTreeChDirMode=2
-let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
+let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__', 'node_modules']
 let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 let g:NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_focus_on_files=1

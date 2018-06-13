@@ -3,6 +3,7 @@
 	email = guilhermevierno@gmail.com
 [push]
 	default = simple
+	followTags = true
 [core]
 	editor = /usr/bin/vim
 	pager = diff-so-fancy | less --tabs=4 -RFX
@@ -11,10 +12,14 @@
 	ci = commit
 	st = status
 	br = branch
-	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	type = cat-file -t
 	dump = cat-file -p
+	lg = log --format='%Cgreen%h %Cred%cr %Creset%s %Cblue%an%Cgreen%d' --graph
+	commit-random = !git commit -m \"$(curl -s http://whatthecommit.com/index.txt)\"
+	release = tag -a --cleanup=verbatim
 [merge]
 	tool = opendiff
 [diff]
 	tool = opendiff
+[commit]
+	cleanup = scissors
