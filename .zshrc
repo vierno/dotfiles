@@ -47,7 +47,7 @@ fpath=($HOME/dotfiles/completion $fpath)
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+# export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 # set where virutal environments will live
 export WORKON_HOME=$HOME/.virtualenvs
 # ensure all new environments are isolated from the site-packages directory
@@ -57,27 +57,26 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 # makes pip detect an active virtualenv and install to it
 export PIP_RESPECT_VIRTUALENV=true
 
-if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
-    source /usr/local/bin/virtualenvwrapper.sh
-else
-    echo "WARNING: Can't find virtualenvwrapper.sh"
-fi
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git, autoenv, brew, bundler, capistrano, django, gem, gitf-flow, grunt, nvm, node, pip, python, ruby, rvm, virtualenvwrapper)
+plugins=(git, autoenv, brew, capistrano, nvm, node, pip, python, virtualenvwrapper)
+
+autoload bashcompinit
+bashcompinit
+
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -106,15 +105,23 @@ alias ccat="pygmentize -g"
 alias wo="workon"
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias json="python -m json.tool"
-alias vim="mvim"
+alias k="kubectl"
+alias vpn='echo -n "$PASS_SECRETO$(2fa gcom)" | pbcopy'
+
+autoload -U +X compinit && compinit
+source <(kubectl completion zsh)
+
+# Export go path
+export GOPATH=$HOME/go
 
 # Export home bin
-export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/bin:$GOPATH/bin:$HOME/.rvm/bin"
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
+export PATH="$NVM_DIR/versions/node/v$(<$NVM_DIR/alias/default)/bin:$PATH"
+alias nvm="unalias nvm; [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"; nvm $@"
 
-export NVM_DIR="/Users/guilherme.vierno/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 ###-begin-npm-completion-###
 #
 # npm command completion script
@@ -173,3 +180,8 @@ fi
 [ -f /Users/guilherme.vierno/.travis/travis.sh ] && source /Users/guilherme.vierno/.travis/travis.sh
 
 bindkey "^R" history-incremental-search-backward
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source ~/private.zsh
+[ -s ~/.luaver/luaver ] && . ~/.luaver/luaver

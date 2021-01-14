@@ -1,11 +1,15 @@
 {
-    "workbench.colorTheme": "Charcoal Oceanic Next",
     "editor.renderWhitespace": "all",
     "[javascript]": {
-        "editor.tabSize": 2
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true
+        },
     },
     "[html]": {
-        "editor.tabSize": 2
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "emmet.syntaxProfiles": {
         "javascript": "jsx"
@@ -19,9 +23,11 @@
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.snippetSuggestions": "top",
     "workbench.editor.enablePreview": false,
-    "python.disablePromptForFeatures": [
-        "pylint"
-    ],
+    "python.formatting.provider": "black",
+    "python.linting.pylintEnabled": false,
+    "python.pythonPath": "/Users/guilherme.vierno/.virtualenvs/admin-services/bin/python3",
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,
@@ -35,5 +41,38 @@
         "suppressWelcomeNotice": true
     },
     "gitlens.keymap": "chorded",
-    "gitlens.historyExplorer.enabled": true,
+    "workbench.colorTheme": "Charcoal Oceanic Next",
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
+    "[ruby]": {
+        "editor.tabSize": 2,
+    },
+    "terraform.codelens.enabled": false,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "sync.gist": "3063336332d32dcfefc388896395f865",
+    "go.useLanguageServer": true,
+    "search.useGlobalIgnoreFiles": true,
+    "liveshare.allowGuestDebugControl": true,
+    "liveshare.languages.allowGuestCommandControl": true,
+    "liveshare.allowGuestTaskControl": true,
+    "explorer.confirmDragAndDrop": false,
+    "eslint.format.enable": true,
+    "[javascriptreact]": {
+
+
+    
+    },
+    "editor.codeActionsOnSave": null,
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "editor.detectIndentation": false
 }
